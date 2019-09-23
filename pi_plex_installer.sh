@@ -26,7 +26,7 @@ touch "${CREDS_FILE}"
 sudo echo -e "username="${NAS_USER}"\npassword="${NAS_PW}"" > "${CREDS_FILE}"
 
 # append line to /etc/fstab
-sudo echo "//"${NAS_IP}""${NAS_DIR}" /mnt/Media/ cifs credentials="${CREDS_FILE}" 0 0" >> /etc/fstab
+sudo echo "//"${NAS_IP}""${NAS_DIR}" /mnt/Media/ cifs credentials="${CREDS_FILE}" 0 0" | sudo tee -a /etc/fstab
 
 # download plex apt PGP key
 curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo apt-key add -
